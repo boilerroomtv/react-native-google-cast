@@ -264,6 +264,12 @@ public class GoogleCastModule extends ReactContextBaseJavaModule implements Life
 
                         @Override
                         public void onCastAvailabilityChanged(boolean castPresent) {
+                            if (castPresent) {
+                                MediaRouter router = MediaRouter.getInstance(getReactApplicationContext());
+                                for (MediaRouter.RouteInfo info : router.getRoutes()) {
+                                    this.onCastDeviceDetected(info);
+                                }
+                            }
                             deviceAvailableParams = Arguments.createMap();
                             Log.e(REACT_CLASS, "onCastAvailabilityChanged: exists? " + Boolean.toString(castPresent));
                             deviceAvailableParams.putBoolean("device_available", castPresent);
