@@ -245,6 +245,7 @@ public class GoogleCastModule extends ReactContextBaseJavaModule implements Life
                         @Override
                         public void onCastDeviceDetected(MediaRouter.RouteInfo info) {
                             super.onCastDeviceDetected(info);
+
                             deviceAvailableParams = Arguments.createMap();
                             Log.e(REACT_CLASS, "detecting devices " + info.getName());
                             deviceAvailableParams.putBoolean("device_available", true);
@@ -267,7 +268,9 @@ public class GoogleCastModule extends ReactContextBaseJavaModule implements Life
                             if (castPresent) {
                                 MediaRouter router = MediaRouter.getInstance(getReactApplicationContext());
                                 for (MediaRouter.RouteInfo info : router.getRoutes()) {
-                                    this.onCastDeviceDetected(info);
+                                    if (info.getPlaybackType() == MediaRouter.RouteInfo.PLAYBACK_TYPE_REMOTE) {
+                                        this.onCastDeviceDetected(info);
+                                    }
                                 }
                             }
                             deviceAvailableParams = Arguments.createMap();
