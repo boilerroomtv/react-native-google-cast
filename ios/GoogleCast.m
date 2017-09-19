@@ -109,7 +109,7 @@ RCT_EXPORT_METHOD(castMedia
   GCKMediaInformation *mediaInformation =
   [[GCKMediaInformation alloc] initWithContentID: mediaUrl
                                       streamType: GCKMediaStreamTypeNone
-                                     contentType: @"vnd.apple.mpegURL"
+                                     contentType: @"video/MP2T"
                                         metadata: metadata
                                   streamDuration: 0
                                       customData: nil];
