@@ -21,7 +21,7 @@ public class GoogleCastService {
         mediaMetadata.addImage(new WebImage(Uri.parse(imageUrl)));
 
         MediaInfo mediaInfo = new MediaInfo.Builder(filmUrl)
-                .setContentType("video/MP2T")
+                .setContentType("application/x-mpegURL")
                 .setStreamType(MediaInfo.STREAM_TYPE_BUFFERED)
                 .setMetadata(mediaMetadata).build();
         return mediaInfo;
