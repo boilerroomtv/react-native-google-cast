@@ -109,7 +109,7 @@ RCT_EXPORT_METHOD(castMedia
   GCKMediaInformation *mediaInformation =
   [[GCKMediaInformation alloc] initWithContentID: mediaUrl
                                       streamType: GCKMediaStreamTypeNone
-                                     contentType: @"video/mp4"
+                                     contentType: @"application/x-mpegURL"
                                         metadata: metadata
                                   streamDuration: 0
                                       customData: nil];
